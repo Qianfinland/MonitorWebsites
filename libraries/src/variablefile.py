@@ -22,6 +22,7 @@ def prod():
     main_dictionary['STACKOVERFLOW_LOGIN_URL'] = 'https://stackoverflow.com/users/login'
     main_dictionary['STACKOVERFLOW_TEAMS_URL'] = 'https://stackoverflow.com/teams'
     main_dictionary['FOOBAR_URL'] = 'http://www.foobar.com/login'
+    main_dictionary['INTERVAL_SEC'] = 3
     return main_dictionary
 
 def preprod():
@@ -30,6 +31,7 @@ def preprod():
     main_dictionary['STACKOVERFLOW_LOGIN_URL'] = None
     main_dictionary['STACKOVERFLOW_TEAMS_URL'] = None
     main_dictionary['FOOBAR_URL'] = None
+    main_dictionary['INTERVAL_SEC'] = None
     return main_dictionary
 
 def test():
@@ -38,4 +40,5 @@ def test():
     main_dictionary['STACKOVERFLOW_LOGIN_URL'] = None
     main_dictionary['STACKOVERFLOW_TEAMS_URL'] = None
     main_dictionary['FOOBAR_URL'] = None
+    main_dictionary['INTERVAL_SEC'] = None
     return main_dictionary

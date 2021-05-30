@@ -39,12 +39,10 @@ class MonitorWebsitesLibrary(object):
         print('Start to monitor webpage "{}" at "{}"'.format(website_url, now_utc))
         schedule.every(interval_sec).seconds.do(self.check_page_response, website_url, page_id)
         check_duration = 0
-        #while True:
         while check_duration < 5*interval_sec:
             schedule.run_pending()
             time.sleep(1)
             check_duration += 1
-            #print('check_duration {}'.format(check_duration))
 
     @keyword("Logger Example")
     def logger_example(self, debug_msg, info_msg):
