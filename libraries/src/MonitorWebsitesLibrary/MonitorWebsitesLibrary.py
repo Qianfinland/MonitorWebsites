@@ -21,16 +21,17 @@ class MonitorWebsitesLibrary(object):
         page_content = page_response.text
         soup = BeautifulSoup(page_content, 'html.parser')
         info_msg = 'Server response time "{}"; Webpage "{}" with status code "{}" '.format(server_response_time, website_url, page_response.status_code)
+        logger.info('page content "{}"'.format(page_content))
         if page_response.status_code == 200:
             check_existence_of_id = soup.find(id=page_id)
             if check_existence_of_id:
-                debug_msg = 'Webpage "{}" works OK; the required page content "{}" exits, page content "{}" '.format(website_url, page_id, page_content)
+                debug_msg = 'Webpage "{}" works OK; the required page content "{}" exits '.format(website_url, page_id)
                 self.logger_example(debug_msg, info_msg)
             else:
-                debug_msg = 'Webpage "{}" has issue; the required content "{}" does NOT exits, page content "{}" '.format(website_url, page_id, page_content)
+                debug_msg = 'Webpage "{}" has issue; the required content "{}" does NOT exits '.format(website_url, page_id)
                 self.logger_example(debug_msg, info_msg)
         else:
-            debug_msg = 'Webpage "{}" has issue; page content "{}" '.format(website_url, page_content)
+            debug_msg = 'Webpage "{}" has issue'.format(website_url)
             self.logger_example(debug_msg, info_msg)
 
     @keyword("Schedule Monitor Website")
